@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Categories;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Session\Session as SessionSession;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session as FacadesSession;
+use Session;
 
 class CategoriesController extends Controller
 {
@@ -64,6 +67,12 @@ class CategoriesController extends Controller
         $category = Categories::whereId($id)->first();
 
         return view('admin.categories.edit',compact('category'));
+    }
+
+    public function show($id){
+
+        Session::put('categories_id',$id);
+        return redirect('/admin/subcategories');
     }
 
     /**

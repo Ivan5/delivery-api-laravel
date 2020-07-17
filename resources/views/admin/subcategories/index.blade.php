@@ -5,8 +5,8 @@
       <div class="row justify-content-center">
         @include('admin.aside')
         <div class="col-md-8">
-          <a class="btn btn-primary" href="{{route('admin.categories.create')}}">New Category</a>
-          @if(count($categories) > 0) 
+          <a class="btn btn-primary" href="{{route('admin.subcategories.create')}}">New Subcategory</a>
+          @if(count($subcategories) > 0) 
           <table class="table">
             <thead>
               <th>#</th>
@@ -14,14 +14,14 @@
               <th>Actions</th>
             </thead>
             <tbody>
-            @foreach ($categories as $category)
+            @foreach ($subcategories as $subcategory)
                 <tr>
-                  <td>{{$category->id}}</td>
-                  <td>{{$category->name}}</td>
+                  <td>{{$subcategory->id}}</td>
+                  <td>{{$subcategory->name}}</td>
                   <td>
-                    <a class="btn btn-info" href="{{route('admin.categories.show',$category->id)}}">Subcategories</a>
-                    <a class="btn btn-warning" href="{{route('admin.categories.edit',$category->id)}}">Edit</a>
-                    {!! Form::open(['method' => 'DELETE', 'route' =>['admin.categories.destroy', $category->id], 'style' => 'display:inline']) !!}
+                    <a class="btn btn-info" href="{{route('admin.subcategories.show',$subcategory->id)}}">Subcategories</a>
+                    <a class="btn btn-warning" href="{{route('admin.subcategories.edit',$subcategory->id)}}">Edit</a>
+                    {!! Form::open(['method' => 'DELETE', 'route' =>['admin.subcategories.destroy', $subcategory->id], 'style' => 'display:inline']) !!}
                       {!! Form::submit('Delete',['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
                     
