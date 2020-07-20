@@ -31,16 +31,13 @@ class SubcategoriesController extends Controller
         $subcategory = new Subcategories($request->all());
         if($request->hasFile('imageUrl')):
             $imageUrl = $request->file('imageUrl');
-            $ruta = public_path('/img/categories/'.$imageUrl->getClientOriginalName());
+            $ruta = public_path('/img/subcategories/'.$imageUrl->getClientOriginalName());
             copy($imageUrl->getRealPath(), $ruta);
             $subcategory->imageUrl = $imageUrl->getClientOriginalName();
         endif;
-        if($request->portada)
-            $subcategory->portada = 1;
-        else
-            $subcategory->portada = 0;
+        $subcategory->categories_id = Session::get('categories_id');
         $subcategory->save();
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.subcategories.index');
     }
 
 
@@ -49,7 +46,7 @@ class SubcategoriesController extends Controller
     {
         $subcategory = Subcategories::whereId($id)->first();
 
-        return view('admin.categories.edit',compact('category'));
+        return view('admin.subcategories.edit',compact('subcategory'));
     }
 
     public function show($id){
@@ -66,16 +63,13 @@ class SubcategoriesController extends Controller
 
         if($request->hasFile('imageUrl')):
             $imageUrl = $request->file('imageUrl');
-            $ruta = public_path('/img/categories/'.$imageUrl->getClientOriginalName());
+            $ruta = public_path('/img/subcategories/'.$imageUrl->getClientOriginalName());
             copy($imageUrl->getRealPath(), $ruta);
             $subcategory->imageUrl = $imageUrl->getClientOriginalName();
         endif;
-        if($request->portada)
-            $subcategory->portada = 1;
-        else
-            $subcategory->portada = 0;
+        
         $subcategory->save();
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.subcategories.index');
     }
 
     
@@ -84,6 +78,6 @@ class SubcategoriesController extends Controller
         $subcategory = Subcategories::findOrFail($id);
         $subcategory->delete();
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.subcategories.index');
     }
 }

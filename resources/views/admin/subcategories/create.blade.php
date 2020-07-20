@@ -5,7 +5,7 @@
       <div class="row justify-content-center">
         @include('admin.aside')
         <div class="col-md-6">
-          {!! Form::open(['route' => ['admin.categories.store'], 'method' => 'POST', 'files' => true]) !!}
+          {!! Form::open(['route' => ['admin.subcategories.store'], 'method' => 'POST', 'files' => true]) !!}
             <div class="row form-group">
                 {!! Form::label('slug', 'Slug')!!} 
                 {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Slug of Category'] )!!} 
@@ -26,10 +26,7 @@
                 {!! Form::label('imageUrl', 'Image')!!} 
                 {!! Form::file('imageUrl')!!} 
             </div>
-            <div class="row form-group">
-                {!! Form::checkbox('portada',null)!!} Portada 
-            </div>
-
+          
             <div class="row form-group">
               <div class="col-sm-6">
                 {!! Form::submit('Save',["class" => "btn btn-success"]) !!} 

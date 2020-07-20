@@ -19,7 +19,7 @@
                   <td>{{$subcategory->id}}</td>
                   <td>{{$subcategory->name}}</td>
                   <td>
-                    <a class="btn btn-info" href="{{route('admin.subcategories.show',$subcategory->id)}}">Subcategories</a>
+                    
                     <a class="btn btn-warning" href="{{route('admin.subcategories.edit',$subcategory->id)}}">Edit</a>
                     {!! Form::open(['method' => 'DELETE', 'route' =>['admin.subcategories.destroy', $subcategory->id], 'style' => 'display:inline']) !!}
                       {!! Form::submit('Delete',['class' => 'btn btn-danger']) !!}
