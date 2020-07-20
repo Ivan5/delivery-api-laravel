@@ -51,8 +51,8 @@ class SubcategoriesController extends Controller
 
     public function show($id){
 
-        Session::put('categories_id',$id);
-        return redirect('/admin/subcategories');
+        Session::put('subcategories_id',$id);
+        return redirect('/admin/products');
     }
 
     
