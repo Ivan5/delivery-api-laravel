@@ -19,7 +19,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function()
     Route::resource('/subcategories','Admin\SubcategoriesController',['as' => 'admin']);
     Route::resource('/products','Admin\ProductsController',['as' => 'admin']);
     Route::resource('/orders','Admin\OrdersController',['as' => 'admin']);
-    Route::resource('/portadas','Admin\PortadasController',['as' => 'admin']);
+    Route::resource('/details','Admin\DetailsController',['as' => 'admin']);
 
 });
 

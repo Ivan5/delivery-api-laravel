@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Orders;
 use Illuminate\Http\Request;
+use Session;
 
 class OrdersController extends Controller
 {
@@ -26,5 +27,10 @@ class OrdersController extends Controller
 
         $order->save();
         return redirect()->route('admin.orders.index');
+    }
+
+    public function show($id){
+        Session::put('orders_id',$id);
+        return redirect('/admin/details');
     }
 }
