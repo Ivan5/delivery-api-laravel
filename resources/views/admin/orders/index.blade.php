@@ -22,7 +22,10 @@
                   <td>{{$order->status}}</td>
                   <td>
                     <a class="btn btn-info" href="{{route('admin.orders.show',$order->id)}}">Details</a>
-                    <a class="btn btn-warning" href="{{route('admin.orders.edit',$orders->id)}}">Edit</a>
+                    @if (!$order->status)
+                        <a class="btn btn-warning" href="{{route('admin.orders.edit',$orders->id)}}">Deliver</a>
+                    @endif
+                    
                   </td>
                 </tr>
               @endforeach 
