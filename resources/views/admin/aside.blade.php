@@ -4,5 +4,6 @@
     <li class="list-group-item"><a href="/admin/categories">Categories</a></li>
     <li class="list-group-item"><a href="/admin/orders">Orders</a></li>
     <li class="list-group-item"><a href="/admin/portadas">Portadas</a></li>
+    <li class="list-group-item"><a href="/admin/posts">Posts</a></li>
   </ul>
 </div>
