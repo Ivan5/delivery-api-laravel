@@ -31,7 +31,7 @@ class SubcategoriesController extends Controller
         $subcategory = new Subcategories($request->all());
         if($request->hasFile('imageUrl')):
             $imageUrl = $request->file('imageUrl');
-            $ruta = public_path('/img/subcategories/'.$imageUrl->getClientOriginalName());
+             $ruta = public_path('/img/subcategories/'.$request->file('imageUrl')->getClientOriginalName());
             copy($imageUrl->getRealPath(), $ruta);
             $subcategory->imageUrl = $imageUrl->getClientOriginalName();
         endif;
@@ -63,7 +63,7 @@ class SubcategoriesController extends Controller
 
         if($request->hasFile('imageUrl')):
             $imageUrl = $request->file('imageUrl');
-            $ruta = public_path('/img/subcategories/'.$imageUrl->getClientOriginalName());
+             $ruta = public_path('/img/subcategories/'.$request->file('imageUrl')->getClientOriginalName());
             copy($imageUrl->getRealPath(), $ruta);
             $subcategory->imageUrl = $imageUrl->getClientOriginalName();
         endif;

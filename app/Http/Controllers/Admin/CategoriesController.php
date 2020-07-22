@@ -43,7 +43,7 @@ class CategoriesController extends Controller
         $category = new Categories($request->all());
         if($request->hasFile('imageUrl')):
             $imageUrl = $request->file('imageUrl');
-            $ruta = public_path('/img/categories/'.$imageUrl->getClientOriginalName());
+             $ruta = public_path('/img/categories/'.$request->file('imageUrl')->getClientOriginalName());
             copy($imageUrl->getRealPath(), $ruta);
             $category->imageUrl = $imageUrl->getClientOriginalName();
         endif;
@@ -89,7 +89,7 @@ class CategoriesController extends Controller
 
         if($request->hasFile('imageUrl')):
             $imageUrl = $request->file('imageUrl');
-            $ruta = public_path('/img/categories/'.$imageUrl->getClientOriginalName());
+             $ruta = public_path('/img/categories/'.$request->file('imageUrl')->getClientOriginalName());
             copy($imageUrl->getRealPath(), $ruta);
             $category->imageUrl = $imageUrl->getClientOriginalName();
         endif;

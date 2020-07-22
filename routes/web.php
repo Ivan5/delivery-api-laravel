@@ -21,5 +21,6 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function()
     Route::resource('/orders','Admin\OrdersController',['as' => 'admin']);
     Route::resource('/details','Admin\DetailsController',['as' => 'admin']);
 
+    Route::resource('/portadas','Admin\PortadasController',['as' => 'admin']);
 });
 

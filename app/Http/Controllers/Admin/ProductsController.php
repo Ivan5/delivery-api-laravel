@@ -28,7 +28,7 @@ class ProductsController extends Controller
         $product = new Products($request->all());
         if($request->hasFile('imageUrl')):
             $imageUrl = $request->file('imageUrl');
-            $ruta = public_path('/img/products/'.$imageUrl->getClientOriginalName());
+             $ruta = public_path('/img/products/'.$request->file('imageUrl')->getClientOriginalName());
             copy($imageUrl->getRealPath(), $ruta);
             $product->imageUrl = $imageUrl->getClientOriginalName();
         endif;
@@ -56,7 +56,7 @@ class ProductsController extends Controller
 
         if($request->hasFile('imageUrl')):
             $imageUrl = $request->file('imageUrl');
-            $ruta = public_path('/img/products/'.$imageUrl->getClientOriginalName());
+             $ruta = public_path('/img/products/'.$request->file('imageUrl')->getClientOriginalName());
             copy($imageUrl->getRealPath(), $ruta);
             $product->imageUrl = $imageUrl->getClientOriginalName();
         endif;
