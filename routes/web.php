@@ -10,9 +10,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin','middleware' => 'auth'], function()
+Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 {
     Route::resource('/users','Admin\UsersController',['as' => 'admin']);
     Route::resource('/categories','Admin\CategoriesController',['as' => 'admin']);
@@ -25,3 +24,8 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function()
     Route::resource('/posts','Admin\PostsController',['as' => 'admin']);
 });
 
+Route::group(['prefix' => 'client','middleware' => 'role:client'], function()
+{
+    Route::get('/home', 'HomeController@index')->name('home');
+    
+});
