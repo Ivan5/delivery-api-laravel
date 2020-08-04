@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\Role;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -74,5 +75,12 @@ class RegisterController extends Controller
         $user->roles()->attach(Role::where('name','client')->first());
 
         return $user;
+    }
+
+    protected function redirectTo(){
+        if(Auth::user()->hasRole('client')){
+            return "/client/home";
+        }
+        return "/";
     }
 }
